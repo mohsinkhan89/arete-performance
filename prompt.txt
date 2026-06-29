@@ -6,3 +6,6 @@ prompt reference 002:
 
 prompt reference 003:
     refine footer styles and adjust media query layout
+
+prompt reference 004:
+    update testimonials section with new quotes and images
