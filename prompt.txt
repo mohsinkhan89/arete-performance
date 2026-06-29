@@ -3,3 +3,6 @@ prompt reference 001:
 
 prompt reference 002:
     Enhance testimonials section with new carousel and statistics; update footer layout and content
+
+prompt reference 003:
+    refine footer styles and adjust media query layout
