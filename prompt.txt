@@ -9,3 +9,6 @@ prompt reference 003:
 
 prompt reference 004:
     update testimonials section with new quotes and images
+
+prompt reference 005:  
+    home page layout changes done

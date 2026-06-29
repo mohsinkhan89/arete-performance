@@ -35,6 +35,28 @@ document.addEventListener("DOMContentLoaded", () => {
   const findProduct = (id) => products.find((product) => product.id === id);
   const cartQty = () => [...cart.values()].reduce((total, qty) => total + qty, 0);
 
+  function prepareAnimatedHeadings() {
+    document.querySelectorAll(".section-heading h2, .why-intro h2").forEach((heading) => {
+      if (heading.dataset.animatedHeading === "true") return;
+      const text = heading.textContent.trim();
+      if (!text) return;
+
+      let charIndex = 0;
+      heading.innerHTML = text.split(" ").map((word) => {
+        const letters = [...word].map((letter) => {
+          const span = `<span class="heading-char" style="--char-index:${charIndex}">${letter}</span>`;
+          charIndex += 1;
+          return span;
+        }).join("");
+        return `<span class="heading-word">${letters}</span>`;
+      }).join('<span class="heading-space" aria-hidden="true"></span>');
+
+      heading.classList.add("animated-heading");
+      heading.dataset.animatedHeading = "true";
+      heading.setAttribute("aria-label", text);
+    });
+  }
+
   function updateHeaderState() {
     siteHeader.classList.toggle("is-scrolled", window.scrollY > 20);
   }
@@ -274,10 +296,15 @@ document.addEventListener("DOMContentLoaded", () => {
     event.currentTarget.reset();
   });
 
+  prepareAnimatedHeadings();
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (!entry.isIntersecting) return;
       entry.target.classList.add("is-visible");
+      if (entry.target.classList.contains("animated-heading")) {
+        entry.target.classList.add("heading-ready");
+      }
       observer.unobserve(entry.target);
     });
   }, { threshold: 0.14 });
@@ -285,6 +312,10 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".reveal-on-scroll, .reveal-group > *").forEach((item, index) => {
     item.style.transitionDelay = `${Math.min(index % 6, 5) * 70}ms`;
     observer.observe(item);
+  });
+
+  document.querySelectorAll(".animated-heading").forEach((heading) => {
+    observer.observe(heading);
   });
 
   renderCart();
