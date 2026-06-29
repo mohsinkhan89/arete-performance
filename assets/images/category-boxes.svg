@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 300" role="img" aria-labelledby="title">
+  <title id="title">Arete product boxes</title>
+  <defs>
+    <linearGradient id="boxA" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2a2a2a"/>
+      <stop offset="1" stop-color="#060606"/>
+    </linearGradient>
+    <linearGradient id="boxB" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#141414"/>
+      <stop offset="1" stop-color="#000"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd66f"/>
+      <stop offset=".55" stop-color="#f5a817"/>
+      <stop offset="1" stop-color="#b96c00"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="18" stdDeviation="16" flood-color="#000" flood-opacity=".28"/>
+    </filter>
+  </defs>
+  <ellipse cx="210" cy="260" rx="140" ry="24" fill="#000" opacity=".16"/>
+  <g filter="url(#shadow)">
+    <path d="M86 92h122v148H86z" fill="url(#boxA)"/>
+    <path d="M208 92l56-28v148l-56 28z" fill="#111"/>
+    <path d="M86 92l56-28h122l-56 28z" fill="#343434"/>
+    <path d="M104 110h84v112h-84z" fill="#0b0b0b" stroke="#383838"/>
+    <path d="M223 83h96v134h-96z" fill="url(#boxB)"/>
+    <path d="M319 83l38-20v134l-38 20z" fill="#151515"/>
+    <path d="M223 83l38-20h96l-38 20z" fill="#303030"/>
+    <path d="M238 101h66v95h-66z" fill="#070707" stroke="#3a3a3a"/>
+    <path d="M128 143l20-36h22l-34 59h-22l-10 18h-21l24-41z" fill="#fff"/>
+    <path d="M156 143h34l-12 22h-34z" fill="url(#gold)"/>
+    <path d="M259 128l15-27h17l-25 44h-17l-8 13h-16l18-30z" fill="#fff"/>
+    <path d="M280 128h25l-9 16h-25z" fill="url(#gold)"/>
+    <text x="110" y="204" fill="#fff" font-family="Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="5">ARETE</text>
+    <text x="238" y="181" fill="#fff" font-family="Arial, sans-serif" font-size="11" font-weight="700" letter-spacing="4">ARETE</text>
+    <rect x="108" y="212" width="76" height="4" fill="url(#gold)"/>
+    <rect x="240" y="188" width="58" height="3" fill="url(#gold)"/>
+  </g>
+</svg>

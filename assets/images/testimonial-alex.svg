@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="title">
+  <title id="title">Alex testimonial portrait</title>
+  <rect width="120" height="120" rx="60" fill="#111"/>
+  <circle cx="60" cy="45" r="24" fill="#ce8b5c"/>
+  <path d="M35 47c3-24 17-34 34-31 14 2 22 13 18 34-14-8-31-10-52-3z" fill="#211714"/>
+  <path d="M28 112c6-28 22-43 32-43s26 15 32 43z" fill="#f7f7f7"/>
+  <path d="M45 70c8 8 22 8 30 0v16c-8 9-22 9-30 0z" fill="#ad6843"/>
+  <path d="M47 55c7 7 19 7 26 0" fill="none" stroke="#4d2919" stroke-width="4" stroke-linecap="round"/>
+</svg>

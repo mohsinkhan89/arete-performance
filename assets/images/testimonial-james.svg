@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="title">
+  <title id="title">James testimonial portrait</title>
+  <rect width="120" height="120" rx="60" fill="#171717"/>
+  <circle cx="60" cy="46" r="24" fill="#d9a06f"/>
+  <path d="M35 49c1-26 14-36 31-34 15 2 23 12 21 34-15-8-33-8-52 0z" fill="#111"/>
+  <path d="M30 112c5-29 21-43 30-43s25 14 30 43z" fill="#f5a817"/>
+  <path d="M45 70c8 8 22 8 30 0v16c-8 9-22 9-30 0z" fill="#c98455"/>
+  <path d="M46 54c7 8 21 8 28 0" fill="none" stroke="#53301f" stroke-width="4" stroke-linecap="round"/>
+</svg>

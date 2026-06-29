@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 300" role="img" aria-labelledby="title">
+  <title id="title">Syringe and needle</title>
+  <defs>
+    <linearGradient id="metal" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f7f7f7"/>
+      <stop offset=".5" stop-color="#a9adb3"/>
+      <stop offset="1" stop-color="#fefefe"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#dfe4ea" stop-opacity=".2"/>
+      <stop offset=".5" stop-color="#ffffff" stop-opacity=".78"/>
+      <stop offset="1" stop-color="#b8c0c9" stop-opacity=".5"/>
+    </linearGradient>
+    <filter id="shadow" x="-15%" y="-30%" width="130%" height="160%">
+      <feDropShadow dx="0" dy="16" stdDeviation="12" flood-color="#000" flood-opacity=".18"/>
+    </filter>
+  </defs>
+  <ellipse cx="250" cy="240" rx="175" ry="18" fill="#000" opacity=".08"/>
+  <g filter="url(#shadow)" transform="rotate(-28 260 150)">
+    <rect x="102" y="132" width="205" height="34" rx="8" fill="url(#glass)" stroke="#9ba3ad" stroke-width="3"/>
+    <rect x="76" y="121" width="38" height="56" rx="4" fill="url(#metal)" stroke="#8f969f" stroke-width="3"/>
+    <rect x="46" y="139" width="46" height="20" rx="3" fill="#d3d8de" stroke="#8f969f" stroke-width="3"/>
+    <rect x="300" y="127" width="28" height="44" rx="3" fill="#c3c9d1" stroke="#858d96" stroke-width="3"/>
+    <path d="M327 149h92" stroke="#787f88" stroke-width="5" stroke-linecap="round"/>
+    <path d="M419 149l76-16-70 28z" fill="#7d858e"/>
+    <path d="M130 132v34M158 132v34M186 132v34M214 132v34M242 132v34M270 132v34" stroke="#a7afb8" stroke-width="2"/>
+    <path d="M117 149h178" stroke="#f5a817" stroke-width="4" opacity=".55"/>
+    <circle cx="326" cy="149" r="8" fill="#f5a817"/>
+  </g>
+</svg>
