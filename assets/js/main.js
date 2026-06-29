@@ -16,8 +16,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const siteHeader = document.querySelector(".site-header");
   const navbarCollapse = document.querySelector("#mainNav");
   const toastElement = document.querySelector("#cartToast");
-  const toast = bootstrap.Toast.getOrCreateInstance(toastElement, { delay: 1800 });
-  const toastBody = toastElement.querySelector(".toast-body");
+  const toast = window.bootstrap && toastElement ? bootstrap.Toast.getOrCreateInstance(toastElement, { delay: 1800 }) : null;
+  const toastBody = toastElement?.querySelector(".toast-body");
 
   const searchPanel = document.querySelector(".search-panel");
   const searchInput = document.querySelector("#siteSearch");
@@ -40,6 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function showToast(message) {
+    if (!toast || !toastBody) return;
     toastBody.textContent = message;
     toast.show();
   }
@@ -141,7 +142,7 @@ document.addEventListener("DOMContentLoaded", () => {
       navLinks.forEach((item) => item.classList.remove("active"));
       link.classList.add("active");
 
-      if (navbarCollapse.classList.contains("show")) {
+      if (window.bootstrap && navbarCollapse.classList.contains("show")) {
         bootstrap.Collapse.getOrCreateInstance(navbarCollapse).hide();
       }
     });
@@ -164,6 +165,83 @@ document.addEventListener("DOMContentLoaded", () => {
   cartOverlay.addEventListener("click", closeCart);
   document.querySelector(".slider-prev")?.addEventListener("click", () => productTrack.scrollBy({ left: -260, behavior: "smooth" }));
   document.querySelector(".slider-next")?.addEventListener("click", () => productTrack.scrollBy({ left: 260, behavior: "smooth" }));
+
+  document.querySelectorAll("[data-testimonial-slider]").forEach((slider) => {
+    const track = slider.querySelector(".testimonial-track");
+    const slides = [...slider.querySelectorAll(".testimonial-slide")];
+    const pagination = slider.querySelector(".testimonial-pagination");
+    const prev = slider.querySelector(".testimonial-prev");
+    const next = slider.querySelector(".testimonial-next");
+    let activeIndex = 0;
+
+    function visibleCount() {
+      if (!slides.length) return 1;
+      return Math.max(1, Math.round(track.clientWidth / slides[0].getBoundingClientRect().width));
+    }
+
+    function maxIndex() {
+      return Math.max(0, slides.length - visibleCount());
+    }
+
+    function setActiveDot(index) {
+      pagination.querySelectorAll("button").forEach((dot, dotIndex) => {
+        const isActive = dotIndex === index;
+        dot.classList.toggle("is-active", isActive);
+        dot.setAttribute("aria-current", isActive ? "true" : "false");
+      });
+    }
+
+    function goTo(index) {
+      activeIndex = Math.max(0, Math.min(index, maxIndex()));
+      const target = slides[activeIndex];
+      if (target) track.scrollTo({ left: target.offsetLeft - track.offsetLeft, behavior: "smooth" });
+      setActiveDot(activeIndex);
+    }
+
+    function buildPagination() {
+      const dots = maxIndex() + 1;
+      pagination.innerHTML = Array.from({ length: dots }, (_, index) => (
+        `<button type="button" aria-label="Show testimonial ${index + 1}"></button>`
+      )).join("");
+      pagination.querySelectorAll("button").forEach((dot, index) => {
+        dot.addEventListener("click", () => goTo(index));
+      });
+      goTo(Math.min(activeIndex, maxIndex()));
+    }
+
+    function syncActiveFromScroll() {
+      const width = slides[0]?.getBoundingClientRect().width || 1;
+      const gap = parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap) || 0;
+      activeIndex = Math.max(0, Math.min(maxIndex(), Math.round(track.scrollLeft / (width + gap))));
+      setActiveDot(activeIndex);
+    }
+
+    prev?.addEventListener("click", () => goTo(activeIndex - 1));
+    next?.addEventListener("click", () => goTo(activeIndex + 1));
+    track.addEventListener("scroll", syncActiveFromScroll, { passive: true });
+    window.addEventListener("resize", buildPagination);
+    buildPagination();
+  });
+
+  document.querySelectorAll(".quote-card p").forEach((text) => {
+    text.setAttribute("tabindex", "0");
+    text.setAttribute("role", "button");
+    text.setAttribute("aria-expanded", "false");
+    text.title = "Click to read full testimonial";
+
+    function toggleTestimonial() {
+      const card = text.closest(".quote-card");
+      const isExpanded = card.classList.toggle("is-expanded");
+      text.setAttribute("aria-expanded", String(isExpanded));
+    }
+
+    text.addEventListener("click", toggleTestimonial);
+    text.addEventListener("keydown", (event) => {
+      if (event.key !== "Enter" && event.key !== " ") return;
+      event.preventDefault();
+      toggleTestimonial();
+    });
+  });
 
   document.addEventListener("click", (event) => {
     const productCard = event.target.closest(".product-card");
@@ -190,7 +268,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  document.querySelector(".newsletter").addEventListener("submit", (event) => {
+  document.querySelector(".newsletter")?.addEventListener("submit", (event) => {
     event.preventDefault();
     showToast("Thanks for joining our newsletter.");
     event.currentTarget.reset();

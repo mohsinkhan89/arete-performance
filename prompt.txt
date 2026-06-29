@@ -1,2 +1,5 @@
 prompt reference 001:
     Add old product bottle image to assets
+
+prompt reference 002:
+    Enhance testimonials section with new carousel and statistics; update footer layout and content

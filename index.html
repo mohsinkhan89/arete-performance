@@ -121,26 +121,70 @@
 
     <section class="testimonials section-space">
       <div class="container">
-        <div class="text-center section-heading reveal-on-scroll"><p class="eyebrow">Trusted by athletes</p><h2>Real Results. Real People.</h2></div>
-        <div class="row g-3 mt-3 reveal-group">
-          <div class="col-md-4"><figure class="quote-card"><i class="fa-solid fa-quote-left"></i><blockquote>"Arete products helped transform my training and performance."</blockquote><figcaption><img src="assets/images/testimonial-james.svg" alt="James T."><div><strong>James T.</strong><small>Bodybuilder</small></div></figcaption></figure></div>
-          <div class="col-md-4"><figure class="quote-card"><i class="fa-solid fa-quote-left"></i><blockquote>"Quality you can trust and results you can see."</blockquote><figcaption><img src="assets/images/testimonial-mike.svg" alt="Mike R."><div><strong>Mike R.</strong><small>Fitness Coach</small></div></figcaption></figure></div>
-          <div class="col-md-4"><figure class="quote-card"><i class="fa-solid fa-quote-left"></i><blockquote>"Fast shipping, discreet packaging, and genuinely great support."</blockquote><figcaption><img src="assets/images/testimonial-alex.svg" alt="Alex P."><div><strong>Alex P.</strong><small>Athlete</small></div></figcaption></figure></div>
+        <div class="text-center section-heading testimonial-heading reveal-on-scroll">
+          <p class="eyebrow">Trusted by athletes</p>
+          <h2>Real Results. Real People.</h2>
+          <p>At Arete Performance, we don't just promise results - we deliver them.<br>Here's what athletes and professionals have to say about their journey with us.</p>
+        </div>
+        <div class="testimonial-carousel" data-testimonial-slider>
+          <button class="testimonial-nav testimonial-prev" type="button" aria-label="Previous testimonial"><i class="fa-solid fa-chevron-left"></i></button>
+          <div class="testimonial-viewport">
+            <div class="testimonial-track reveal-group">
+              <article class="testimonial-slide"><figure class="quote-card"><i class="fa-solid fa-quote-left"></i><p>"Arete products helped transform my training and performance."</p><figcaption><img src="assets/images/testimonial-james.svg" alt="James T."><div><strong>James T.</strong><small>Bodybuilder</small><span class="rating" aria-label="5 star rating">★★★★★</span></div></figcaption></figure></article>
+              <article class="testimonial-slide is-featured"><figure class="quote-card"><i class="fa-solid fa-quote-left"></i><p>"Quality you can trust and results you can see."</p><figcaption><img src="assets/images/testimonial-mike.svg" alt="Mike R."><div><strong>Mike R.</strong><small>Fitness Coach</small><span class="rating" aria-label="5 star rating">★★★★★</span></div></figcaption></figure></article>
+              <article class="testimonial-slide"><figure class="quote-card"><i class="fa-solid fa-quote-left"></i><p>"Fast shipping, discreet packaging, and genuinely great support."</p><figcaption><img src="assets/images/testimonial-alex.svg" alt="Alex P."><div><strong>Alex P.</strong><small>Athlete</small><span class="rating" aria-label="5 star rating">★★★★★</span></div></figcaption></figure></article>
+              <article class="testimonial-slide"><figure class="quote-card"><i class="fa-solid fa-quote-left"></i><p>"The packaging was clean, private, and the whole order felt professional."</p><figcaption><img src="assets/images/testimonial-james.svg" alt="Daniel K."><div><strong>Daniel K.</strong><small>Powerlifter</small><span class="rating" aria-label="5 star rating">★★★★★</span></div></figcaption></figure></article>
+              <article class="testimonial-slide"><figure class="quote-card"><i class="fa-solid fa-quote-left"></i><p>"Support answered quickly and helped me pick exactly what I needed."</p><figcaption><img src="assets/images/testimonial-mike.svg" alt="Ryan S."><div><strong>Ryan S.</strong><small>Trainer</small><span class="rating" aria-label="5 star rating">★★★★★</span></div></figcaption></figure></article>
+            </div>
+          </div>
+          <button class="testimonial-nav testimonial-next" type="button" aria-label="Next testimonial"><i class="fa-solid fa-chevron-right"></i></button>
+          <div class="testimonial-pagination" aria-label="Testimonials pagination"></div>
+        </div>
+        <div class="testimonial-stats reveal-on-scroll">
+          <div><i class="fa-solid fa-users"></i><strong>50K+</strong><span>Happy Customers</span></div>
+          <div><i class="fa-solid fa-star"></i><strong>4.9/5</strong><span>Average Rating</span></div>
+          <div><i class="fa-solid fa-shield-halved"></i><strong>99%</strong><span>Satisfaction Rate</span></div>
+          <div><i class="fa-solid fa-award"></i><strong>100%</strong><span>Quality Assured</span></div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer section-space pb-4" id="contact">
+  <footer class="site-footer" id="contact">
     <div class="container">
-      <div class="row g-4">
-        <div class="col-lg-3"><a class="brand footer-brand" href="#home"><img src="assets/images/logo/logo.png" alt="Arete Performance"></a><p class="footer-copy">Premium performance solutions designed to help you reach your full potential.</p><div class="socials"><a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a><a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a><a href="#" aria-label="Youtube"><i class="fa-brands fa-youtube"></i></a></div></div>
-        <div class="col-6 col-lg-2"><h3>Shop</h3><a href="#products">Orals</a><a href="#products">Fat Burners</a><a href="#products">Peptides</a><a href="#products">Sexual Health</a></div>
-        <div class="col-6 col-lg-2"><h3>Company</h3><a href="#about">About Us</a><a href="#contact">Contact Us</a><a href="#">Shipping &amp; Returns</a><a href="#">Privacy Policy</a></div>
-        <div class="col-6 col-lg-2"><h3>Support</h3><a href="#">My Account</a><a href="#">Track Order</a><a href="#">Help Center</a><a href="#">Wholesale</a></div>
-        <div class="col-lg-3"><h3>Newsletter</h3><p>Get special offers, free giveaways and once-in-a-lifetime deals.</p><form class="newsletter"><label class="visually-hidden" for="email">Email</label><input id="email" type="email" placeholder="Enter your email" required><button type="submit" aria-label="Subscribe"><i class="fa-solid fa-arrow-right"></i></button></form></div>
+      <div class="footer-main">
+        <div class="footer-brand-block">
+          <a class="brand footer-brand" href="#home"><img src="assets/images/logo/logo.png" alt="Arete Performance"></a>
+          <p class="footer-copy">Premium performance solutions designed to help you reach your full potential.</p>
+          <div class="socials"><a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a><a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a><a href="#" aria-label="Youtube"><i class="fa-brands fa-youtube"></i></a></div>
+        </div>
+        <div class="footer-links">
+          <h3>Shop</h3>
+          <a href="#products">Orals</a><a href="#products">Fat Burners</a><a href="#products">Peptides</a><a href="#products">Sexual Health</a><a href="#products">Post Cycle Therapy</a><a href="#products">Growth Hormone</a><a href="#products">Syringes &amp; Needles</a>
+        </div>
+        <div class="footer-links">
+          <h3>Company</h3>
+          <a href="#about">About Us</a><a href="#contact">Contact Us</a><a href="#">Shipping &amp; Returns</a><a href="#">Privacy Policy</a><a href="#">Terms &amp; Conditions</a><a href="#">Lab Reports</a>
+        </div>
+        <div class="footer-links">
+          <h3>Support</h3>
+          <a href="#">My Account</a><a href="#">Track Order</a><a href="#">Help Center</a><a href="#">Wholesale</a>
+        </div>
+        <!-- <div class="footer-newsletter">
+          <h3>Newsletter</h3>
+          <p>Get special offers, free giveaways and once-in-a-lifetime deals.</p>
+          <form class="newsletter"><label class="visually-hidden" for="email">Email</label><input id="email" type="email" placeholder="Enter your email" required><button type="submit" aria-label="Subscribe"><i class="fa-solid fa-arrow-right"></i></button></form>
+          <div class="footer-assurance"><i class="fa-solid fa-cube"></i><div><strong>Discreet Shipping</strong><span>Private &amp; secure delivery</span></div></div>
+          <div class="footer-assurance"><i class="fa-solid fa-shield-halved"></i><div><strong>Secure Payments</strong><span>100% secure &amp; trusted</span></div></div>
+        </div> -->
       </div>
-      <div class="footer-bottom"><span>&copy; 2026 Arete Performance. All rights reserved.</span><div class="payment-badges"><span>VISA</span><span>MC</span><span>AMEX</span><span>PayPal</span><span>BTC</span></div></div>
+      <div class="footer-feature-strip">
+        <div><i class="fa-solid fa-flask-vial"></i><strong>Lab Tested</strong><span>Every batch is lab verified.</span></div>
+        <div><i class="fa-solid fa-award"></i><strong>Premium Quality</strong><span>Backed by science.</span></div>
+        <div><i class="fa-solid fa-headset"></i><strong>24/7 Support</strong><span>We're here to help.</span></div>
+        <div><i class="fa-solid fa-lock"></i><strong>100% Secure</strong><span>Your data is protected.</span></div>
+      </div>
+      <div class="footer-bottom"><span>&copy; 2026 Arete Performance. All rights reserved.</span><div class="payment-badges"><span>VISA</span><span></span><span>AMEX</span><span>PayPal</span><span>BTC</span></div></div>
     </div>
   </footer>
 
