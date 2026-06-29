@@ -1,0 +1,2 @@
+prompt reference 001:
+    Add old product bottle image to assets
