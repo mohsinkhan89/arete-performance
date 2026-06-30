@@ -7114,3 +7114,224 @@ main section {
     max-height: calc(100vh - 222px);
   }
 }
+
+/* Product detail interactions */
+.product-detail-page .product-thumbs button,
+.product-detail-page .product-main-image,
+.product-detail-page .product-actions .btn,
+.product-detail-page .cart-stepper button,
+.product-detail-page .lab-report button,
+.product-detail-page .related-card button,
+.product-detail-page .product-benefit-strip > div,
+.product-detail-page .description-assurance > div,
+.product-detail-page .benefit-list > div,
+.product-detail-page .dosage-steps > div,
+.product-detail-page .ingredient-certifications > div,
+.product-detail-page .review-card,
+.product-detail-page .faq-list details,
+.product-detail-page .shop-trust-grid > div {
+  transition: transform .28s ease, border-color .28s ease, box-shadow .28s ease, background .28s ease, color .28s ease, opacity .28s ease;
+}
+
+.product-detail-page .product-thumbs button,
+.product-detail-page .product-main-image,
+.product-detail-page .lab-report button,
+.product-detail-page .related-card,
+.product-detail-page .product-benefit-strip > div,
+.product-detail-page .description-assurance > div,
+.product-detail-page .benefit-list > div,
+.product-detail-page .dosage-steps > div,
+.product-detail-page .ingredient-certifications > div,
+.product-detail-page .review-card,
+.product-detail-page .faq-list summary,
+.product-detail-page .shop-trust-grid > div {
+  cursor: pointer;
+}
+
+.product-detail-page .product-thumbs button:hover,
+.product-detail-page .product-thumbs button:focus-visible {
+  transform: translateY(-4px) scale(1.04);
+  border-color: var(--color-primary);
+  box-shadow: 0 14px 28px rgba(245, 168, 23, .18);
+  outline: 0;
+}
+
+.product-detail-page .product-thumbs button.active {
+  box-shadow: 0 16px 34px rgba(245, 168, 23, .22);
+}
+
+.product-detail-page .product-main-image {
+  transform-style: preserve-3d;
+}
+
+.product-detail-page .product-main-image:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 22px 46px rgba(0, 0, 0, .2);
+}
+
+.product-detail-page .product-main-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(115deg, transparent 18%, rgba(255, 255, 255, .16) 44%, transparent 62%);
+  opacity: 0;
+  transform: translateX(-60%);
+}
+
+.product-detail-page .product-main-image:hover::after {
+  animation: detailImageShine 1.15s ease;
+}
+
+.product-detail-page .product-main-image.is-zoomed > img {
+  transform: scale(1.22) rotate(-2deg);
+}
+
+.product-detail-page .product-main-image > img,
+.product-detail-page .related-card img {
+  transition: transform .32s ease, opacity .32s ease, filter .32s ease;
+}
+
+.product-detail-page .product-main-image.is-zoomed figcaption {
+  background: rgba(245, 168, 23, .88);
+  color: #080808;
+}
+
+.product-detail-page .product-main-image.is-swapping > img {
+  animation: detailImageSwap .36s ease;
+}
+
+.product-detail-page .product-actions .btn:hover,
+.product-detail-page .lab-report button:hover,
+.product-detail-page .related-card button:hover,
+.product-detail-page .cart-stepper button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(245, 168, 23, .22);
+}
+
+.product-detail-page .product-actions .btn:active,
+.product-detail-page .lab-report button:active,
+.product-detail-page .related-card button:active,
+.product-detail-page .cart-stepper button:active {
+  transform: translateY(0) scale(.96);
+}
+
+.product-detail-page .product-benefit-strip > div:hover i,
+.product-detail-page .description-assurance > div:hover i,
+.product-detail-page .benefit-list > div:hover i,
+.product-detail-page .dosage-steps > div:hover i,
+.product-detail-page .ingredient-certifications > div:hover i,
+.product-detail-page .shop-trust-grid > div:hover i {
+  animation: detailIconPop .55s ease;
+}
+
+.product-detail-page .related-card {
+  transition: transform .28s ease, border-color .28s ease, box-shadow .28s ease, background .28s ease;
+}
+
+.product-detail-page .related-card:hover {
+  transform: translateY(-7px);
+  border-color: rgba(245, 168, 23, .62);
+  background: linear-gradient(145deg, rgba(245, 168, 23, .14), rgba(255, 255, 255, .05));
+  box-shadow: 0 22px 42px rgba(0, 0, 0, .24);
+}
+
+.product-detail-page .related-card:hover img {
+  animation: detailProductFloat .85s ease;
+}
+
+.product-detail-page .faq-list details[open] {
+  border-color: rgba(245, 168, 23, .44);
+  box-shadow: 0 12px 26px rgba(245, 168, 23, .12);
+}
+
+.product-detail-page .is-tapped {
+  animation: detailTapPulse .5s ease;
+}
+
+.product-detail-page .product-tabs a {
+  transition: transform .24s ease, box-shadow .24s ease, background .24s ease, color .24s ease;
+}
+
+.product-detail-page .product-tabs a:hover,
+.product-detail-page .product-tabs a:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(245, 168, 23, .16);
+}
+
+@keyframes detailImageShine {
+  0% {
+    opacity: 0;
+    transform: translateX(-70%);
+  }
+
+  35% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(70%);
+  }
+}
+
+@keyframes detailImageSwap {
+  0% {
+    opacity: .35;
+    transform: translateY(16px) scale(.94);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes detailIconPop {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  45% {
+    transform: scale(1.18) rotate(-8deg);
+  }
+}
+
+@keyframes detailProductFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px) rotate(2deg);
+  }
+}
+
+@keyframes detailTapPulse {
+  0%,
+  100% {
+    transform: translateY(-5px) scale(1);
+  }
+
+  45% {
+    transform: translateY(-5px) scale(1.025);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .product-detail-page .product-main-image:hover::after,
+  .product-detail-page .product-main-image.is-swapping > img,
+  .product-detail-page .product-benefit-strip > div:hover i,
+  .product-detail-page .description-assurance > div:hover i,
+  .product-detail-page .benefit-list > div:hover i,
+  .product-detail-page .dosage-steps > div:hover i,
+  .product-detail-page .ingredient-certifications > div:hover i,
+  .product-detail-page .shop-trust-grid > div:hover i,
+  .product-detail-page .related-card:hover img,
+  .product-detail-page .is-tapped {
+    animation: none;
+  }
+}

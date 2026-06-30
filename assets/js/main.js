@@ -192,12 +192,13 @@ document.addEventListener("DOMContentLoaded", () => {
     setPanelState(cartDrawer, false);
   }
 
-  function addToCart(id) {
+  function addToCart(id, quantity = 1) {
     const product = findProduct(id);
     if (!product) return;
-    cart.set(id, (cart.get(id) || 0) + 1);
+    const safeQty = Math.max(1, Number(quantity) || 1);
+    cart.set(id, (cart.get(id) || 0) + safeQty);
     renderCart();
-    showToast(`${product.name} added to your cart.`);
+    showToast(`${product.name}${safeQty > 1 ? ` x${safeQty}` : ""} added to your cart.`);
   }
 
   function updateQty(id, direction) {
@@ -360,20 +361,80 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.addEventListener("click", (event) => {
     const productCard = event.target.closest(".product-card");
+    const relatedCard = event.target.closest(".related-card");
     const addFromSearch = event.target.closest("[data-search-add]");
+    const productThumb = event.target.closest("[data-product-image]");
+    const productAdd = event.target.closest("[data-product-add]");
+    const buyNow = event.target.closest("[data-buy-now]");
+    const productQtyInc = event.target.closest("[data-product-qty-inc]");
+    const productQtyDec = event.target.closest("[data-product-qty-dec]");
+    const productZoom = event.target.closest("[data-product-zoom]");
+    const labReport = event.target.closest("[data-lab-report]");
+    const detailTapCard = event.target.closest(".product-benefit-strip > div, .description-assurance > div, .benefit-list > div, .dosage-steps > div, .ingredient-certifications > div, .review-card, .shop-trust-grid > div");
     const inc = event.target.closest("[data-cart-inc]");
     const dec = event.target.closest("[data-cart-dec]");
     const remove = event.target.closest("[data-cart-remove]");
+    const drawerCheckout = event.target.closest(".cart-summary .btn");
+
+    const qtyOutput = document.querySelector("[data-product-qty]");
+    const getProductQty = () => Math.max(1, Number(qtyOutput?.textContent) || 1);
+    const setProductQty = (qty) => {
+      if (!qtyOutput) return;
+      qtyOutput.textContent = String(Math.max(1, Math.min(99, qty)));
+    };
 
     if (productCard && event.target.closest("button")) {
       const index = [...document.querySelectorAll(".product-card")].indexOf(productCard);
       addToCart(productCard.dataset.productId || products[index]?.id);
     }
 
+    if (relatedCard) {
+      addToCart(relatedCard.dataset.productId);
+    }
+
+    if (productThumb) {
+      const mainImage = document.querySelector("[data-product-main-image]");
+      if (mainImage) {
+        productThumb.parentElement.querySelectorAll("[data-product-image]").forEach((thumb) => thumb.classList.remove("active"));
+        productThumb.classList.add("active");
+        mainImage.closest(".product-main-image")?.classList.add("is-swapping");
+        mainImage.src = productThumb.dataset.productImage;
+        mainImage.alt = productThumb.dataset.productAlt || "Product image";
+        setTimeout(() => mainImage.closest(".product-main-image")?.classList.remove("is-swapping"), 360);
+      }
+    }
+
+    if (productQtyInc) setProductQty(getProductQty() + 1);
+    if (productQtyDec) setProductQty(getProductQty() - 1);
+    if (productAdd) addToCart(productAdd.dataset.productAdd, getProductQty());
+    if (buyNow) {
+      addToCart(buyNow.dataset.buyNow, getProductQty());
+      window.location.href = "checkout.html";
+    }
+    if (labReport) showToast("Lab report preview is opening soon.");
+    if (drawerCheckout) window.location.href = "checkout.html";
+
+    if (detailTapCard && !event.target.closest("button, a, summary")) {
+      detailTapCard.classList.remove("is-tapped");
+      requestAnimationFrame(() => detailTapCard.classList.add("is-tapped"));
+      setTimeout(() => detailTapCard.classList.remove("is-tapped"), 520);
+    }
+
+    if (productZoom && !event.target.closest("[data-product-image]")) {
+      const isZoomed = productZoom.classList.toggle("is-zoomed");
+      productZoom.setAttribute("aria-pressed", String(isZoomed));
+    }
+
     if (addFromSearch) addToCart(addFromSearch.dataset.searchAdd);
     if (inc) updateQty(inc.dataset.cartInc, 1);
     if (dec) updateQty(dec.dataset.cartDec, -1);
     if (remove) updateQty(remove.dataset.cartRemove, -999);
+  });
+
+  document.querySelector("[data-product-zoom]")?.addEventListener("keydown", (event) => {
+    if (event.key !== "Enter" && event.key !== " ") return;
+    event.preventDefault();
+    event.currentTarget.click();
   });
 
   document.addEventListener("keydown", (event) => {

@@ -46,15 +46,14 @@
         <div class="product-detail-layout">
           <div class="product-gallery">
             <div class="product-thumbs" aria-label="Product thumbnails">
-              <button class="active" type="button"><img src="assets/images/product-bottle.png" alt="Bottle front"></button>
-              <button type="button"><img src="assets/images/categories-imgs/orals.png" alt="Bottle side"></button>
-              <button type="button"><span class="tablet-dots"></span></button>
-              <button type="button"><img src="assets/images/category-boxes.svg" alt="Product box"></button>
+              <button class="active" type="button" data-product-image="assets/images/product-bottle.png" data-product-alt="Anavar 50 bottle front"><img src="assets/images/product-bottle.png" alt="Bottle front"></button>
+              <button type="button" data-product-image="assets/images/categories-imgs/orals.png" data-product-alt="Anavar 50 oral tablets"><img src="assets/images/categories-imgs/orals.png" alt="Bottle side"></button>
+              <button type="button" data-product-image="assets/images/product-bottle.png" data-product-alt="Anavar 50 tablet view"><span class="tablet-dots"></span></button>
+              <button type="button" data-product-image="assets/images/category-boxes.svg" data-product-alt="Anavar 50 product box"><img src="assets/images/category-boxes.svg" alt="Product box"></button>
             </div>
-            <figure class="product-main-image">
+            <figure class="product-main-image" data-product-zoom role="button" tabindex="0" aria-label="Zoom product image" aria-pressed="false">
               <span class="tag">Best seller</span>
-              <img src="assets/images/product-bottle.png" alt="Anavar 50 bottle">
-              <figcaption><span><i class="fa-solid fa-magnifying-glass"></i> Click to Zoom</span><span><i class="fa-solid fa-cubes-stacked"></i> 360 View</span></figcaption>
+              <img src="assets/images/product-bottle.png" alt="Anavar 50 bottle" data-product-main-image>
             </figure>
           </div>
 
@@ -71,11 +70,11 @@
             </div>
             <div class="product-quantity">
               <span>Quantity</span>
-              <div class="cart-stepper"><button type="button">-</button><span>1</span><button type="button">+</button></div>
+              <div class="cart-stepper"><button type="button" data-product-qty-dec aria-label="Decrease quantity">-</button><span data-product-qty>1</span><button type="button" data-product-qty-inc aria-label="Increase quantity">+</button></div>
             </div>
             <div class="product-actions">
-              <button class="btn btn-gold" type="button">Add to cart <i class="fa-solid fa-cart-plus"></i></button>
-              <button class="btn buy-now-btn" type="button">Buy now <i class="fa-solid fa-bolt"></i></button>
+              <button class="btn btn-gold" type="button" data-product-add="anavar-50">Add to cart <i class="fa-solid fa-cart-plus"></i></button>
+              <button class="btn buy-now-btn" type="button" data-buy-now="anavar-50">Buy now <i class="fa-solid fa-bolt"></i></button>
             </div>
             <div class="secure-payment">
               <span>Secure Checkout With</span>
@@ -123,7 +122,7 @@
             <aside class="lab-report">
               <h3>Lab Tested &amp; Certified</h3>
               <div class="report-preview"><img src="assets/images/logo/logo-transperent.png" alt="Arete lab report"></div>
-              <button type="button">View full report <i class="fa-solid fa-download"></i></button>
+              <button type="button" data-lab-report>View full report <i class="fa-solid fa-download"></i></button>
             </aside>
           </div>
           <div class="description-assurance">
