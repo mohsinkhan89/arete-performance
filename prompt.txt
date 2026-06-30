@@ -36,3 +36,6 @@ prompt reference 011:
 
 prompt reference 012:
     update background positioning for hero performance images
+
+prompt reference 013:
+    Refactor code structure for improved readability and maintainability
