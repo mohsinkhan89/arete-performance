@@ -5179,6 +5179,9 @@ img {
 }
 
 @media only screen and (min-width:1300px) and (max-width:1550px) {
+  .min-vh-hero {
+    min-height: 435px;
+  }
   .hero { 
     height: 600px;
   }
@@ -5960,10 +5963,6 @@ img {
   .hero {
     height: auto;
     min-height: 640px;
-  }
-
-  .min-vh-hero {
-    min-height: 500px;
   }
 
   .footer-main {
