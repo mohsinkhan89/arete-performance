@@ -2,14 +2,22 @@ document.addEventListener("DOMContentLoaded", () => {
   const products = [
     { id: "anavar-50", name: "Anavar 50", meta: "Oxandrolone", price: 59.99, image: "assets/images/product-bottle.png" },
     { id: "cardarine", name: "Cardarine", meta: "GW-501516", price: 69.99, image: "assets/images/product-bottle.png" },
-    { id: "nolvadex-20", name: "Nolvadex 20", meta: "Tamoxifen", price: 49.99, image: "assets/images/product-bottle.png" },
+    { id: "nolvadex-20", name: "Nolvadex 20", meta: "Tamoxifen", price: 49.99, image: "assets/images/categories-imgs/post-cycle-therapy.png" },
     { id: "hgh-191aa", name: "HGH 191AA", meta: "10 IU", price: 149.99, image: "assets/images/product-bottle.png" },
-    { id: "bpc-157", name: "BPC-157", meta: "5mg", price: 59.99, image: "assets/images/product-bottle.png" },
+    { id: "bpc-157", name: "BPC-157 5mg", meta: "Peptides", price: 59.99, image: "assets/images/categories-imgs/peptides.png" },
+    { id: "pct-complete-stack", name: "PCT Complete Stack", meta: "Post Cycle Therapy", price: 89.99, image: "assets/images/category-boxes.svg" },
+    { id: "testosterone-enanthate", name: "Testosterone Enanthate", meta: "Hormones", price: 49.99, image: "assets/images/product-bottle.png" },
+    { id: "male-enhancement-stack", name: "Male Enhancement Stack", meta: "Sexual Health", price: 79.99, image: "assets/images/categories-imgs/sexual-health.png" },
+    { id: "clenbuterol", name: "Clenbuterol 40mcg", meta: "Fat Burners", price: 49.99, image: "assets/images/categories-imgs/fat-burrners.png" },
+    { id: "insulin-syringes", name: "Insulin Syringes 1ml", meta: "Syringes & Needles", price: 9.99, image: "assets/images/categories-imgs/injection.png" },
+    { id: "winstrol", name: "Winstrol 10mg", meta: "Orals", price: 54.99, image: "assets/images/categories-imgs/orals.png" },
+    { id: "cjc-1295", name: "CJC-1295 2mg", meta: "Peptides", price: 74.99, image: "assets/images/categories-imgs/peptides.png" },
+    { id: "trenbolone-acetate", name: "Trenbolone Acetate", meta: "Hormones", price: 64.99, image: "assets/images/product-bottle.png" },
   ];
 
   const cart = new Map([
-    ["anavar-50", 1],
     ["cardarine", 1],
+    ["anavar-50", 1],
   ]);
 
   const navLinks = document.querySelectorAll(".navbar .nav-link");
@@ -102,9 +110,11 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function addToCart(id) {
+    const product = findProduct(id);
+    if (!product) return;
     cart.set(id, (cart.get(id) || 0) + 1);
     renderCart();
-    showToast(`${findProduct(id).name} added to your cart.`);
+    showToast(`${product.name} added to your cart.`);
   }
 
   function updateQty(id, direction) {
@@ -274,7 +284,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (productCard && event.target.closest("button")) {
       const index = [...document.querySelectorAll(".product-card")].indexOf(productCard);
-      addToCart(products[index].id);
+      addToCart(productCard.dataset.productId || products[index]?.id);
     }
 
     if (addFromSearch) addToCart(addFromSearch.dataset.searchAdd);

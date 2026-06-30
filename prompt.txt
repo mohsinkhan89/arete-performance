@@ -12,3 +12,6 @@ prompt reference 004:
 
 prompt reference 005:  
     home page layout changes done
+
+prompt reference 006:  
+    Update product images and add new products to the shop page; create shop.html with layout and styling.
