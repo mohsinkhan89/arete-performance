@@ -25,6 +25,8 @@ document.addEventListener("DOMContentLoaded", () => {
     { id: "whey-mass-gainer", name: "Whey Mass Gainer", meta: "Protein", price: 69.99, image: "assets/images/product-bottle.png" },
     { id: "whey-protein-strawberry", name: "Whey Protein (Strawberry)", meta: "Protein", price: 54.99, image: "assets/images/categories-imgs/orals.png" },
     { id: "whey-blend-cookies", name: "Whey Blend (Cookies & Cream)", meta: "Protein", price: 54.99, image: "assets/images/product-bottle.png" },
+    { id: "ostarine", name: "Ostarine MK-2866", meta: "Enobosarm", price: 49.99, image: "assets/images/product-bottle.png" },
+    { id: "masteron-enanthate", name: "Masteron Enanthate", meta: "Performance", price: 49.99, image: "assets/images/categories-imgs/peptides.png" },
   ];
 
   const cart = new Map([
@@ -322,6 +324,42 @@ document.addEventListener("DOMContentLoaded", () => {
     showToast("Thanks for joining our newsletter.");
     event.currentTarget.reset();
   });
+
+  const tabCards = [...document.querySelectorAll(".tab-content-card")];
+  if (tabCards.length) {
+    const tabIds = ["description", "benefits", "dosage", "ingredients", "reviews", "faq"];
+
+    function getTabCard(id) {
+      const target = document.getElementById(id);
+      return target?.classList.contains("tab-content-card") ? target : target?.closest(".tab-content-card");
+    }
+
+    function showProductTab(id, updateHash = true) {
+      const nextId = tabIds.includes(id) ? id : "description";
+      const nextCard = getTabCard(nextId) || tabCards[0];
+
+      tabCards.forEach((card) => {
+        const isActive = card === nextCard;
+        card.classList.toggle("is-hidden", !isActive);
+        card.querySelectorAll(".product-tabs a").forEach((link) => {
+          link.classList.toggle("active", link.getAttribute("href") === `#${nextId}`);
+        });
+      });
+
+      if (updateHash) history.replaceState(null, "", `#${nextId}`);
+    }
+
+    document.addEventListener("click", (event) => {
+      const tabLink = event.target.closest(".product-tabs a");
+      if (!tabLink) return;
+      const id = tabLink.getAttribute("href")?.replace("#", "");
+      if (!tabIds.includes(id)) return;
+      event.preventDefault();
+      showProductTab(id);
+    });
+
+    showProductTab(location.hash.replace("#", ""), false);
+  }
 
   prepareAnimatedHeadings();
 

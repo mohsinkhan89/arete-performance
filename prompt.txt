@@ -23,3 +23,7 @@ prompt reference 007:
 
 prompt reference 008:  
     Add order success page and related styles; clear cart on success
+
+prompt reference 009:   
+    Add product detail page for Anavar 50 and update product list in main.js
+    Add product detail page for Anavar 50 and update product list; implement tab navigation for product information
