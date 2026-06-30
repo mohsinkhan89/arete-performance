@@ -42,3 +42,9 @@ prompt reference 013:
 
 prompt reference 014:
     update bundle offer section in my-cart.html for improved layout and link adjustment
+
+prompt reference 015:
+    Update payment method display in footer and add new payment icons
+
+    - Replaced text-based payment badges with image icons for Google Pay and Apple Pay in both search.html and shop.html.
+    - Added new image files for Google Pay and Apple Pay in the assets/images directory.
