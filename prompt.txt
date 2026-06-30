@@ -48,3 +48,6 @@ prompt reference 015:
 
     - Replaced text-based payment badges with image icons for Google Pay and Apple Pay in both search.html and shop.html.
     - Added new image files for Google Pay and Apple Pay in the assets/images directory.
+
+prompt reference 016:
+    update shop trust section across multiple pages and adjust footer layout
