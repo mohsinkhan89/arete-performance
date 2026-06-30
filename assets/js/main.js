@@ -84,6 +84,70 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  function preparePageAnimations() {
+    const revealSelectors = [
+      ".category-card",
+      ".benefit",
+      ".product-card",
+      ".quote-card",
+      ".testimonial-stats > div",
+      ".footer-main > *",
+      ".footer-feature-strip > div",
+      ".footer-bottom",
+      ".shop-sidebar",
+      ".shop-toolbar",
+      ".bundle-banner",
+      ".shop-trust-grid > div",
+      ".shop-newsletter-inner > *",
+      ".cart-items-panel",
+      ".order-summary",
+      ".checkout-step",
+      ".checkout-summary",
+      ".success-card",
+      ".recommended-products",
+      ".product-gallery",
+      ".product-purchase",
+      ".product-benefit-strip > div",
+      ".tab-content-card",
+      ".related-card",
+      ".reviews-panel",
+      ".usage-panel"
+    ];
+
+    const cards = document.querySelectorAll([
+      ".category-card",
+      ".product-card",
+      ".shop-product-card",
+      ".quote-card",
+      ".success-card",
+      ".cart-items-panel",
+      ".order-summary",
+      ".checkout-summary",
+      ".product-info-card",
+      ".related-card"
+    ].join(","));
+
+    document.querySelectorAll(revealSelectors.join(",")).forEach((item, index) => {
+      if (!item.classList.contains("reveal-up") && !item.classList.contains("reveal-on-scroll")) {
+        item.classList.add("reveal-on-scroll");
+      }
+      if (!item.dataset.anim) {
+        item.dataset.anim = index % 5 === 0 ? "scale" : index % 3 === 0 ? "left" : index % 3 === 1 ? "right" : "soft";
+      }
+    });
+
+    cards.forEach((card) => card.classList.add("motion-card"));
+
+    document.querySelectorAll(".hero-bottle, .product-main-image > img, .benefits-product-shot img, .bundle-products img").forEach((asset, index) => {
+      asset.classList.add("float-asset");
+      asset.style.animationDelay = `${(index % 4) * 160}ms`;
+    });
+
+    document.querySelectorAll(".btn-gold, .success-check, .product-category-pill").forEach((item) => {
+      item.classList.add("pulse-glow");
+    });
+  }
+
   function updateHeaderState() {
     siteHeader.classList.toggle("is-scrolled", window.scrollY > 20);
   }
@@ -346,6 +410,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       });
 
+      nextCard.classList.add("is-visible");
       if (updateHash) history.replaceState(null, "", `#${nextId}`);
     }
 
@@ -362,6 +427,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   prepareAnimatedHeadings();
+  preparePageAnimations();
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {

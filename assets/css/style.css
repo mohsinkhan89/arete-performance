@@ -1376,15 +1376,43 @@ img {
 
 .reveal-on-scroll,
 .reveal-group>* {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity .65s ease, transform .65s ease;
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .72s cubic-bezier(.2, .82, .24, 1), transform .72s cubic-bezier(.2, .82, .24, 1), filter .72s ease;
+  will-change: opacity, transform;
 }
 
 .reveal-on-scroll.is-visible,
 .reveal-group>*.is-visible {
   opacity: 1;
   transform: translateY(0);
+  filter: none;
+}
+
+.reveal-on-scroll[data-anim="left"],
+.reveal-group>*[data-anim="left"] {
+  transform: translateX(-34px);
+}
+
+.reveal-on-scroll[data-anim="right"],
+.reveal-group>*[data-anim="right"] {
+  transform: translateX(34px);
+}
+
+.reveal-on-scroll[data-anim="scale"],
+.reveal-group>*[data-anim="scale"] {
+  transform: translateY(18px) scale(.96);
+}
+
+.reveal-on-scroll[data-anim="soft"],
+.reveal-group>*[data-anim="soft"] {
+  /* filter: blur(8px); */
+  transform: translateY(20px);
+}
+
+.reveal-on-scroll.is-visible[data-anim],
+.reveal-group>*.is-visible[data-anim] {
+  transform: translate(0, 0) scale(1);
 }
 
 .category-card img,
@@ -1395,6 +1423,39 @@ img {
 .category-card:hover img,
 .product-card:hover img {
   transform: translateY(-7px) scale(1.04);
+}
+
+.motion-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.motion-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 0%, rgba(255, 255, 255, .16) 42%, transparent 60%);
+  opacity: 0;
+  transform: translateX(-120%);
+  transition: transform .75s ease, opacity .35s ease;
+  pointer-events: none;
+}
+
+.motion-card:hover::after {
+  opacity: 1;
+  transform: translateX(120%);
+}
+
+.motion-card:hover {
+  transform: translateY(-6px);
+}
+
+.float-asset {
+  animation: productFloat 5.8s ease-in-out infinite;
+}
+
+.pulse-glow {
+  animation: pulseGlow 2.8s ease-in-out infinite;
 }
 
 .search-panel {
@@ -4491,6 +4552,17 @@ img {
   }
 }
 
+@keyframes pulseGlow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 rgba(245, 168, 23, 0);
+  }
+
+  50% {
+    box-shadow: 0 0 32px rgba(245, 168, 23, .28);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -4503,6 +4575,13 @@ img {
 
   .animated-heading .heading-char {
     opacity: 1;
+    transform: none;
+  }
+
+  .reveal-on-scroll,
+  .reveal-group>* {
+    opacity: 1;
+    filter: none;
     transform: none;
   }
 }
