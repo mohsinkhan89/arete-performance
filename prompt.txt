@@ -39,3 +39,6 @@ prompt reference 012:
 
 prompt reference 013:
     Refactor code structure for improved readability and maintainability
+
+prompt reference 014:
+    update bundle offer section in my-cart.html for improved layout and link adjustment
