@@ -33,6 +33,10 @@ document.addEventListener("DOMContentLoaded", () => {
     ["pct-complete-stack", 1],
   ]);
 
+  if (document.body.classList.contains("order-success-page")) {
+    cart.clear();
+  }
+
   const navLinks = document.querySelectorAll(".navbar .nav-link");
   const siteHeader = document.querySelector(".site-header");
   const navbarCollapse = document.querySelector("#mainNav");

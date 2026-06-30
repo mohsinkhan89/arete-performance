@@ -20,3 +20,6 @@ prompt reference 007:
     Add shopping cart and search results pages
     - Created my-cart.html for the shopping cart functionality, including product listings, order summary, and navigation.
     - Developed search.html to display search results with filters, product listings, and pagination.
+
+prompt reference 008:  
+    Add order success page and related styles; clear cart on success
