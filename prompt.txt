@@ -15,3 +15,8 @@ prompt reference 005:
 
 prompt reference 006:  
     Update product images and add new products to the shop page; create shop.html with layout and styling.
+
+prompt reference 007:  
+    Add shopping cart and search results pages
+    - Created my-cart.html for the shopping cart functionality, including product listings, order summary, and navigation.
+    - Developed search.html to display search results with filters, product listings, and pagination.

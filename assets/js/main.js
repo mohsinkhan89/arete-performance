@@ -13,11 +13,24 @@ document.addEventListener("DOMContentLoaded", () => {
     { id: "winstrol", name: "Winstrol 10mg", meta: "Orals", price: 54.99, image: "assets/images/categories-imgs/orals.png" },
     { id: "cjc-1295", name: "CJC-1295 2mg", meta: "Peptides", price: 74.99, image: "assets/images/categories-imgs/peptides.png" },
     { id: "trenbolone-acetate", name: "Trenbolone Acetate", meta: "Hormones", price: 64.99, image: "assets/images/product-bottle.png" },
+    { id: "whey-protein-isolate", name: "Whey Protein Isolate", meta: "Protein", price: 59.99, image: "assets/images/product-bottle.png" },
+    { id: "whey-protein-concentrate", name: "Whey Protein Concentrate", meta: "Protein", price: 49.99, image: "assets/images/categories-imgs/peptides.png" },
+    { id: "whey-hydrolysate", name: "Whey Hydrolysate", meta: "Protein", price: 64.99, image: "assets/images/product-bottle.png" },
+    { id: "whey-protein-blend", name: "Whey Protein Blend", meta: "Protein", price: 54.99, image: "assets/images/categories-imgs/orals.png" },
+    { id: "whey-isolate-unflavored", name: "Whey Isolate (Unflavored)", meta: "Protein", price: 59.99, image: "assets/images/product-bottle.png" },
+    { id: "whey-protein-shaker", name: "Whey Protein + Shaker", meta: "Protein", price: 69.99, image: "assets/images/category-boxes.svg" },
+    { id: "whey-isolate-chocolate", name: "Whey Isolate (Chocolate)", meta: "Protein", price: 59.99, image: "assets/images/product-bottle.png" },
+    { id: "whey-concentrate", name: "Whey Concentrate", meta: "Protein", price: 44.99, image: "assets/images/categories-imgs/sexual-health.png" },
+    { id: "whey-isolate-vanilla", name: "Whey Isolate (Vanilla)", meta: "Protein", price: 59.99, image: "assets/images/product-bottle.png" },
+    { id: "whey-mass-gainer", name: "Whey Mass Gainer", meta: "Protein", price: 69.99, image: "assets/images/product-bottle.png" },
+    { id: "whey-protein-strawberry", name: "Whey Protein (Strawberry)", meta: "Protein", price: 54.99, image: "assets/images/categories-imgs/orals.png" },
+    { id: "whey-blend-cookies", name: "Whey Blend (Cookies & Cream)", meta: "Protein", price: 54.99, image: "assets/images/product-bottle.png" },
   ];
 
   const cart = new Map([
     ["cardarine", 1],
     ["anavar-50", 1],
+    ["pct-complete-stack", 1],
   ]);
 
   const navLinks = document.querySelectorAll(".navbar .nav-link");

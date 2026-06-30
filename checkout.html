@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Secure checkout for Arete Performance.">
+  <title>Checkout | Arete Performance</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body class="checkout-page">
+  <header class="site-header">
+    <nav class="navbar navbar-expand-lg navbar-dark py-3">
+      <div class="container">
+        <a class="brand" href="index.html" aria-label="Arete Performance home"><img src="assets/images/logo/logo-transperent.png" alt="Arete Performance"></a>
+        <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav mx-auto gap-lg-4">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
+            <li class="nav-item"><a class="nav-link" href="index.html#about">About us</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          </ul>
+          <div class="nav-actions d-flex align-items-center gap-3">
+            <button class="icon-btn search-toggle" type="button" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <button class="icon-btn" type="button" aria-label="Account"><i class="fa-regular fa-user"></i></button>
+            <button class="icon-btn cart-btn" type="button" aria-label="Cart"><i class="fa-solid fa-cart-shopping"></i><span class="cart-count">3</span></button>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="checkout-hero">
+      <div class="container">
+        <div class="checkout-hero-copy reveal-up">
+          <p class="eyebrow">Checkout</p>
+          <h1>Secure Checkout.<br><span>Stronger You.</span></h1>
+          <nav class="checkout-breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><i class="fa-solid fa-chevron-right"></i><a href="my-cart.html">Cart</a><i class="fa-solid fa-chevron-right"></i><span>Checkout</span></nav>
+        </div>
+      </div>
+    </section>
+
+    <section class="checkout-main section-space">
+      <div class="container">
+        <div class="checkout-layout">
+          <form class="checkout-form reveal-on-scroll">
+            <section class="checkout-step">
+              <div class="checkout-step-head">
+                <span>1</span>
+                <h2>Contact Information</h2>
+                <p>Already have an account? <a href="#">Log in</a></p>
+              </div>
+              <label class="visually-hidden" for="checkoutEmail">Email Address</label>
+              <input id="checkoutEmail" type="email" placeholder="Email Address">
+              <label class="checkout-check"><input type="checkbox" checked> Email me with news and offers</label>
+            </section>
+
+            <section class="checkout-step">
+              <div class="checkout-step-head">
+                <span>2</span>
+                <h2>Shipping Information</h2>
+              </div>
+              <div class="checkout-fields">
+                <label class="visually-hidden" for="fullName">Full Name</label>
+                <input id="fullName" class="wide" type="text" placeholder="Full Name">
+                <label class="visually-hidden" for="streetAddress">Street Address</label>
+                <input id="streetAddress" class="wide" type="text" placeholder="Street Address">
+                <label class="visually-hidden" for="city">City</label>
+                <input id="city" type="text" placeholder="City">
+                <label class="visually-hidden" for="state">State / Province</label>
+                <input id="state" type="text" placeholder="State / Province">
+                <label class="visually-hidden" for="zip">ZIP / Postal Code</label>
+                <input id="zip" type="text" placeholder="ZIP / Postal Code">
+                <label class="checkout-select" for="country"><span>Country</span><select id="country"><option>United States</option><option>Canada</option><option>United Kingdom</option></select></label>
+                <label class="visually-hidden" for="phone">Phone Number</label>
+                <input id="phone" class="span-2" type="tel" placeholder="Phone Number">
+              </div>
+            </section>
+
+            <section class="checkout-step">
+              <div class="checkout-step-head">
+                <span>3</span>
+                <h2>Shipping Method</h2>
+              </div>
+              <label class="checkout-option active"><span><input type="radio" name="shipping" checked> Standard Shipping (5-7 Business Days)</span><strong>$9.99</strong></label>
+              <label class="checkout-option"><span><input type="radio" name="shipping"> Express Shipping (2-3 Business Days)</span><strong>$19.99</strong></label>
+            </section>
+
+            <section class="checkout-step">
+              <div class="checkout-step-head">
+                <span>4</span>
+                <h2>Payment Method</h2>
+              </div>
+              <label class="checkout-option active payment-option"><span><input type="radio" name="payment" checked> Credit / Debit Card</span><div class="payment-badges mini-payments"><span>VISA</span><span></span><span>AMEX</span><span>DISC</span></div></label>
+              <label class="checkout-option payment-option"><span><input type="radio" name="payment"> PayPal</span><strong class="paypal-mark">PayPal</strong></label>
+              <label class="checkout-option payment-option"><span><input type="radio" name="payment"> Other Payment Methods</span><div class="crypto-marks"><span>BTC</span><span>ETH</span></div></label>
+            </section>
+          </form>
+
+          <aside class="checkout-summary reveal-on-scroll" aria-labelledby="checkoutSummaryTitle">
+            <h2 id="checkoutSummaryTitle">Order Summary</h2>
+            <div class="checkout-summary-items">
+              <article>
+                <img src="assets/images/product-bottle.png" alt="Anavar 50">
+                <div><strong>Anavar 50</strong><span>(Oxandrolone)</span><small>Qty: 1</small></div>
+                <b>$59.99</b>
+              </article>
+              <article>
+                <img src="assets/images/category-boxes.svg" alt="PCT Complete Stack">
+                <div><strong>PCT Complete Stack</strong><span>Post Cycle Therapy</span><small>Qty: 1</small></div>
+                <b>$89.99</b>
+              </article>
+              <article>
+                <img src="assets/images/categories-imgs/peptides.png" alt="CJC-1295">
+                <div><strong>CJC-1295 2mg</strong><span>Peptides</span><small>Qty: 2</small></div>
+                <b>$149.98</b>
+              </article>
+            </div>
+            <div class="checkout-total-lines">
+              <div><span>Subtotal (3 Items)</span><strong>$299.96</strong></div>
+              <div><span>Shipping <i class="fa-regular fa-circle-question"></i></span><strong>$9.99</strong></div>
+              <div class="discount"><span>Discount (ARETE10)</span><strong>- $29.99</strong></div>
+            </div>
+            <div class="checkout-total"><span>Total</span><strong>$279.96</strong></div>
+            <p class="checkout-savings"><i class="fa-solid fa-shield-heart"></i> You saved $29.99 with this order!</p>
+            <button class="btn btn-gold w-100" type="button">Place order <i class="fa-solid fa-lock"></i></button>
+            <p class="checkout-secure"><i class="fa-solid fa-shield-halved"></i> Secure 256-bit SSL encrypted checkout</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="shop-newsletter">
+      <div class="container">
+        <div class="shop-newsletter-inner">
+          <div>
+            <p class="eyebrow">Stay in the loop</p>
+            <h2>Exclusive deals. Expert tips. Straight to your inbox.</h2>
+            <p>Join the Arete Performance community.</p>
+          </div>
+          <form class="newsletter">
+            <label class="visually-hidden" for="checkoutNewsletter">Email</label>
+            <input id="checkoutNewsletter" type="email" placeholder="Enter your email" required>
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+    <footer class="site-footer" id="contact">
+    <div class="container">
+      <div class="footer-main">
+        <div class="footer-brand-block">
+          <a class="brand footer-brand" href="#home"><img src="assets/images/logo/logo.png" alt="Arete Performance"></a>
+          <p class="footer-copy">Premium performance solutions designed to help you reach your full potential.</p>
+          <div class="socials"><a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a><a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a><a href="#" aria-label="Youtube"><i class="fa-brands fa-youtube"></i></a></div>
+        </div>
+        <div class="footer-links">
+          <h3>Shop</h3>
+          <a href="#products">Orals</a><a href="#products">Fat Burners</a><a href="#products">Peptides</a><a href="#products">Sexual Health</a><a href="#products">Post Cycle Therapy</a><a href="#products">Growth Hormone</a><a href="#products">Syringes &amp; Needles</a>
+        </div>
+        <div class="footer-links">
+          <h3>Company</h3>
+          <a href="#about">About Us</a><a href="#contact">Contact Us</a><a href="#">Shipping &amp; Returns</a><a href="#">Privacy Policy</a><a href="#">Terms &amp; Conditions</a><a href="#">Lab Reports</a>
+        </div>
+        <div class="footer-links">
+          <h3>Support</h3>
+          <a href="#">My Account</a><a href="#">Track Order</a><a href="#">Help Center</a><a href="#">Wholesale</a>
+        </div>
+        <!-- <div class="footer-newsletter">
+          <h3>Newsletter</h3>
+          <p>Get special offers, free giveaways and once-in-a-lifetime deals.</p>
+          <form class="newsletter"><label class="visually-hidden" for="email">Email</label><input id="email" type="email" placeholder="Enter your email" required><button type="submit" aria-label="Subscribe"><i class="fa-solid fa-arrow-right"></i></button></form>
+          <div class="footer-assurance"><i class="fa-solid fa-cube"></i><div><strong>Discreet Shipping</strong><span>Private &amp; secure delivery</span></div></div>
+          <div class="footer-assurance"><i class="fa-solid fa-shield-halved"></i><div><strong>Secure Payments</strong><span>100% secure &amp; trusted</span></div></div>
+        </div> -->
+      </div>
+      <div class="footer-feature-strip">
+        <div><i class="fa-solid fa-flask-vial"></i><strong>Lab Tested</strong><span>Every batch is lab verified.</span></div>
+        <div><i class="fa-solid fa-award"></i><strong>Premium Quality</strong><span>Backed by science.</span></div>
+        <div><i class="fa-solid fa-headset"></i><strong>24/7 Support</strong><span>We're here to help.</span></div>
+        <div><i class="fa-solid fa-lock"></i><strong>100% Secure</strong><span>Your data is protected.</span></div>
+      </div>
+      <div class="footer-bottom"><span>&copy; 2026 Arete Performance. All rights reserved.</span><div class="payment-badges"><span>VISA</span><span></span><span>AMEX</span><span>PayPal</span><span>BTC</span></div></div>
+    </div>
+  </footer>
+
+  <div class="search-panel" aria-hidden="true">
+    <button class="panel-close search-close" type="button" aria-label="Close search"><i class="fa-solid fa-xmark"></i></button>
+    <div class="search-box">
+      <p class="eyebrow">Search products</p>
+      <form class="search-form">
+        <label class="visually-hidden" for="siteSearch">Search</label>
+        <input id="siteSearch" type="search" placeholder="Search Orals, Peptides, HGH..." autocomplete="off">
+        <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+      </form>
+      <div class="search-results" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <div class="cart-overlay" aria-hidden="true"></div>
+  <aside class="cart-drawer" aria-hidden="true" aria-label="Shopping cart">
+    <div class="cart-head">
+      <div><p class="eyebrow">Your cart</p><h2>Shopping Cart</h2></div>
+      <button class="panel-close cart-close" type="button" aria-label="Close cart"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="cart-items"></div>
+    <div class="cart-empty">Your cart is empty.</div>
+    <div class="cart-summary">
+      <div><span>Subtotal</span><strong class="cart-subtotal">$0.00</strong></div>
+      <p>Taxes and shipping calculated at checkout.</p>
+      <button class="btn btn-gold w-100" type="button">Checkout <i class="fa-solid fa-arrow-right"></i></button>
+    </div>
+  </aside>
+
+  <div class="toast-container position-fixed bottom-0 end-0 p-3"><div id="cartToast" class="toast" role="status"><div class="toast-body">Product added to your cart.</div></div></div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
