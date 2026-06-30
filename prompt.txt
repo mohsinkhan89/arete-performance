@@ -33,3 +33,6 @@ prompt reference 010:
 
 prompt reference 011:
     Add footer feature strip to multiple pages for enhanced user information
+
+prompt reference 012:
+    update background positioning for hero performance images

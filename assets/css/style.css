@@ -2248,7 +2248,8 @@ img {
   min-height: 310px;
   padding: 74px 0 58px;
   color: var(--color-white);
-  background: var(--color-black) url("../images/hero-performance.png") right 14% bottom/auto 126% no-repeat;
+  background: var(--color-black) url("../images/hero-performance.png") right  35% bottom/auto 120% no-repeat;
+  /* background: var(--color-black) url("../images/hero-performance.png") right 14% bottom/auto 126% no-repeat; */
   border-bottom: 1px solid rgba(255, 255, 255, .1);
   overflow: hidden;
 }
@@ -2564,7 +2565,8 @@ img {
   min-height: 315px;
   padding: 72px 0 54px;
   color: var(--color-white);
-  background: var(--color-black) url("../images/hero-performance.png") right 11% bottom/auto 134% no-repeat;
+  background: var(--color-black) url("../images/hero-performance.png") right  35% bottom/auto 120% no-repeat;
+  /* background: var(--color-black) url("../images/hero-performance.png") right 11% bottom/auto 134% no-repeat; */
   border-bottom: 1px solid rgba(255, 255, 255, .1);
   overflow: hidden;
 }
@@ -3010,7 +3012,8 @@ img {
   min-height: 330px;
   padding: 62px 0 48px;
   color: var(--color-white);
-  background: var(--color-black) url("../images/hero-performance.png") right 12% bottom/auto 124% no-repeat;
+  background: var(--color-black) url("../images/hero-performance.png") right  35% bottom/auto 120% no-repeat;
+  /* background: var(--color-black) url("../images/hero-performance.png") right 12% bottom/auto 124% no-repeat; */
   border-bottom: 1px solid rgba(255, 255, 255, .1);
   overflow: hidden;
 }
