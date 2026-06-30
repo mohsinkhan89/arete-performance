@@ -819,9 +819,8 @@ img {
 }
 
 .quote-card:hover {
-  transform: translateY(-7px);
+  /* transform: translateY(-7px); */
   border-color: rgba(245, 168, 23, .55);
-  box-shadow: 0 23px 48px rgba(0, 0, 0, .16);
 }
 
 .testimonial-slide.is-featured .quote-card {
@@ -846,7 +845,8 @@ img {
 .quote-card::before {
   right: -18px;
   bottom: -27px;
-  background: linear-gradient(135deg, #ffc14d, #c87600 70%);
+  /* background: linear-gradient(135deg, #ffc14d, #c87600 70%); */
+  background: linear-gradient(135deg, #000000, #f5a817 70%);
 }
 
 .quote-card::after {
