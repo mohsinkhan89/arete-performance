@@ -212,6 +212,7 @@ img {
   height: 800px;
   color: var(--color-white);
   background: var(--color-black) url("../images/hero-performance.png") center bottom/cover no-repeat;
+  animation: heroBackdropDrift 18s ease-in-out infinite alternate;
   overflow: hidden;
 }
 
@@ -220,8 +221,9 @@ img {
   position: absolute;
   inset: -25%;
   background: linear-gradient(120deg, transparent 31%, rgba(245, 168, 23, .08) 35%, rgba(255, 193, 77, .44) 36%, rgba(245, 168, 23, .07) 37%, transparent 42%, transparent 49%, rgba(255, 193, 77, .35) 50%, transparent 52%, transparent 59%, rgba(255, 193, 77, .32) 60%, transparent 62%);
-  transform: translateX(-45%);
-  animation: lightSweep 6s ease-in-out infinite;
+  transform: translate3d(-46%, 0, 0) skewX(-8deg);
+  animation: heroLightSweep 8.5s cubic-bezier(.55, 0, .28, 1) infinite;
+  mix-blend-mode: screen;
   pointer-events: none;
 }
 
@@ -230,6 +232,7 @@ img {
   position: absolute;
   inset: 0;
   background: radial-gradient(circle at 76% 48%, rgba(245, 168, 23, .12), transparent 25%), linear-gradient(90deg, rgba(0, 0, 0, .98) 0%, rgba(0, 0, 0, .9) 30%, rgba(0, 0, 0, .28) 64%, rgba(0, 0, 0, .05));
+  animation: heroVignetteBreath 7s ease-in-out infinite alternate;
 }
 
 .hero-content {
@@ -261,6 +264,8 @@ img {
 .hero h1 span {
   display: block;
   color: var(--color-primary);
+  text-shadow: 0 0 18px rgba(245, 168, 23, .2), 0 8px 22px rgba(0, 0, 0, .42);
+  animation: heroGoldFocus 2.4s ease both .55s;
 }
 
 .hero-copy {
@@ -388,6 +393,23 @@ img {
   margin: 23px 0;
   padding: 0 22px;
   border-right: 1px solid rgba(255, 255, 255, .2);
+  animation: heroFeatureIn .75s cubic-bezier(.2, .82, .24, 1) both;
+}
+
+.hero-features .col-6:nth-child(1) .hero-feature {
+  animation-delay: .58s;
+}
+
+.hero-features .col-6:nth-child(2) .hero-feature {
+  animation-delay: .68s;
+}
+
+.hero-features .col-6:nth-child(3) .hero-feature {
+  animation-delay: .78s;
+}
+
+.hero-features .col-6:nth-child(4) .hero-feature {
+  animation-delay: .88s;
 }
 
 .hero-feature i {
@@ -399,6 +421,8 @@ img {
   font-size: 20px;
   border: 1px solid var(--color-primary);
   border-radius: 50%;
+  box-shadow: 0 0 0 rgba(245, 168, 23, 0);
+  animation: heroIconPulse 3.4s ease-in-out infinite;
 }
 
 .hero-feature span {
@@ -1249,7 +1273,6 @@ img {
   position: relative;
   z-index: 1;
   display: grid;
-  margin-top: 86px;
   padding: 32px 42px;
   grid-template-columns: repeat(4, 1fr);
   background: linear-gradient(135deg, rgba(255, 255, 255, .055), rgba(255, 255, 255, .02));
@@ -1456,6 +1479,25 @@ img {
 
 .pulse-glow {
   animation: pulseGlow 2.8s ease-in-out infinite;
+}
+
+.hero .reveal-up {
+  animation-name: heroContentReveal;
+  animation-duration: .95s;
+  animation-timing-function: cubic-bezier(.18, .82, .24, 1);
+  animation-fill-mode: both;
+}
+
+.hero .btn {
+  transform: translateZ(0);
+}
+
+.hero .btn:hover {
+  transform: translateY(-3px);
+}
+
+.hero .btn-gold.pulse-glow {
+  animation: heroCtaGlow 5.5s ease-in-out infinite;
 }
 
 .search-panel {
@@ -1740,7 +1782,8 @@ img {
 
 .shop-hero {
   color: var(--color-white);
-  background: var(--color-black) url("../images/hero-performance.png") right 16% bottom/auto 118% no-repeat;
+  background: var(--color-black) url("../images/hero-performance.png") right  35% bottom/auto 120% no-repeat;
+  /* background: var(--color-black) url("../images/hero-performance.png") center bottom/auto 118% no-repeat; */
   border-bottom: 1px solid rgba(255, 255, 255, .1);
   overflow: hidden;
 }
@@ -4098,6 +4141,79 @@ img {
   padding: 26px 0;
 }
 
+.shop-hero::after,
+.cart-hero::after,
+.checkout-hero::after,
+.search-hero::after {
+  transform: translate3d(-46%, 0, 0) skewX(-8deg);
+  animation: heroLightSweep 8.5s cubic-bezier(.55, 0, .28, 1) infinite;
+  mix-blend-mode: screen;
+}
+
+.shop-hero::before,
+.cart-hero::before,
+.checkout-hero::before,
+.search-hero::before {
+  animation: heroVignetteBreath 7s ease-in-out infinite alternate;
+}
+
+.success-hero::before {
+  animation: successLightDriftLeft 9s cubic-bezier(.55, 0, .28, 1) infinite;
+}
+
+.success-hero::after {
+  animation: successLightDriftRight 9s cubic-bezier(.55, 0, .28, 1) infinite .4s;
+}
+
+.shop-hero-copy,
+.cart-hero-copy,
+.checkout-hero-copy,
+.search-hero-copy,
+.success-hero-copy {
+  animation: heroContentReveal .95s cubic-bezier(.18, .82, .24, 1) both;
+}
+
+.shop-hero h1 span,
+.cart-hero h1 span,
+.checkout-hero h1 span,
+.search-hero h1 span,
+.success-hero h1 span {
+  animation: heroGoldFocus 2.4s ease both .55s;
+}
+
+.shop-hero .btn-gold,
+.cart-hero .btn-gold,
+.checkout-hero .btn-gold,
+.search-hero .btn-gold,
+.success-hero .btn-gold {
+  animation: heroCtaGlow 5.5s ease-in-out infinite;
+}
+
+.shop-hero-features>div {
+  animation: heroFeatureIn .75s cubic-bezier(.2, .82, .24, 1) both;
+}
+
+.shop-hero-features>div:nth-child(1) {
+  animation-delay: .58s;
+}
+
+.shop-hero-features>div:nth-child(2) {
+  animation-delay: .68s;
+}
+
+.shop-hero-features>div:nth-child(3) {
+  animation-delay: .78s;
+}
+
+.shop-hero-features>div:nth-child(4) {
+  animation-delay: .88s;
+}
+
+.shop-hero-features i,
+.success-check {
+  animation: heroIconPulse 3.4s ease-in-out infinite;
+}
+
 .tab-content-card {
   margin-bottom: 22px;
 }
@@ -4497,6 +4613,140 @@ img {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes heroContentReveal {
+  from {
+    opacity: 0;
+    filter: blur(10px);
+    transform: translate3d(0, 34px, 0) scale(.985);
+  }
+
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@keyframes heroBackdropDrift {
+  from {
+    background-position: center bottom;
+  }
+
+  to {
+    background-position: 52% bottom;
+  }
+}
+
+@keyframes heroVignetteBreath {
+  from {
+    opacity: .92;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes heroLightSweep {
+  0%,
+  28% {
+    opacity: 0;
+    transform: translate3d(-52%, 0, 0) skewX(-8deg);
+  }
+
+  42% {
+    opacity: .92;
+  }
+
+  68%,
+  100% {
+    opacity: 0;
+    transform: translate3d(42%, 0, 0) skewX(-8deg);
+  }
+}
+
+@keyframes heroGoldFocus {
+  from {
+    filter: saturate(.75);
+    text-shadow: 0 0 0 rgba(245, 168, 23, 0), 0 8px 22px rgba(0, 0, 0, .42);
+  }
+
+  to {
+    filter: saturate(1.08);
+    text-shadow: 0 0 18px rgba(245, 168, 23, .2), 0 8px 22px rgba(0, 0, 0, .42);
+  }
+}
+
+@keyframes heroFeatureIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroIconPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 rgba(245, 168, 23, 0);
+  }
+
+  50% {
+    box-shadow: 0 0 18px rgba(245, 168, 23, .22);
+  }
+}
+
+@keyframes heroCtaGlow {
+  0%,
+  100% {
+    box-shadow: 0 10px 24px rgba(245, 168, 23, .18);
+  }
+
+  50% {
+    box-shadow: 0 16px 34px rgba(245, 168, 23, .26);
+  }
+}
+
+@keyframes successLightDriftLeft {
+  0%,
+  28% {
+    opacity: .2;
+    transform: translate3d(-5%, 0, 0) skewX(-8deg);
+  }
+
+  48% {
+    opacity: .95;
+  }
+
+  78%,
+  100% {
+    opacity: .22;
+    transform: translate3d(7%, 0, 0) skewX(-8deg);
+  }
+}
+
+@keyframes successLightDriftRight {
+  0%,
+  28% {
+    opacity: .22;
+    transform: translate3d(6%, 0, 0) skewX(-8deg);
+  }
+
+  48% {
+    opacity: .95;
+  }
+
+  78%,
+  100% {
+    opacity: .24;
+    transform: translate3d(-6%, 0, 0) skewX(-8deg);
   }
 }
 
