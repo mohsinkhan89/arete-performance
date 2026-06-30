@@ -7214,12 +7214,13 @@ main section {
   transform: translateY(0) scale(.96);
 }
 
-.product-detail-page .product-benefit-strip > div:hover i,
-.product-detail-page .description-assurance > div:hover i,
-.product-detail-page .benefit-list > div:hover i,
-.product-detail-page .dosage-steps > div:hover i,
-.product-detail-page .ingredient-certifications > div:hover i,
-.product-detail-page .shop-trust-grid > div:hover i {
+.testimonial-stats > div:hover i,
+.product-benefit-strip > div:hover i,
+.description-assurance > div:hover i,
+.benefit-list > div:hover i,
+.dosage-steps > div:hover i,
+.ingredient-certifications > div:hover i,
+.shop-trust-grid > div:hover i {
   animation: detailIconPop .55s ease;
 }
 
@@ -7330,5 +7331,160 @@ main section {
   .product-detail-page .related-card:hover img,
   .product-detail-page .is-tapped {
     animation: none;
+  }
+}
+
+/* Site-wide CTA polish */
+button,
+.btn,
+.category-card,
+.product-card,
+.shop-product-card,
+.related-card {
+  cursor: pointer;
+}
+
+.btn,
+button:not(.navbar-toggler):not(.panel-close):not(.slider-arrow):not(.testimonial-nav) {
+  transition: transform .24s ease, box-shadow .24s ease, border-color .24s ease, background .24s ease, color .24s ease, filter .24s ease;
+}
+
+.btn:hover,
+button:not(.navbar-toggler):not(.panel-close):not(.slider-arrow):not(.testimonial-nav):hover {
+  transform: translateY(-2px);
+}
+
+.btn:focus-visible,
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+.btn:active,
+button:not(.navbar-toggler):not(.panel-close):not(.slider-arrow):not(.testimonial-nav):active {
+  transform: translateY(0) scale(.97);
+}
+
+.btn-gold,
+.buy-now-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-gold::after,
+.buy-now-btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(115deg, transparent 8%, rgba(255, 255, 255, .4) 48%, transparent 62%);
+  opacity: 0;
+  transform: translateX(-110%);
+  transition: transform .65s ease, opacity .28s ease;
+}
+
+.btn-gold:hover::after,
+.buy-now-btn:hover::after {
+  opacity: 1;
+  transform: translateX(110%);
+}
+
+.btn-gold > *,
+.buy-now-btn > * {
+  position: relative;
+  z-index: 1;
+}
+
+.product-card,
+.shop-product-card,
+.category-card,
+.related-card {
+  outline: 0;
+}
+
+.product-card:hover,
+.shop-product-card:hover,
+.category-card:hover,
+.related-card:hover {
+  border-color: rgba(245, 168, 23, .55);
+}
+
+.product-card:focus-visible,
+.shop-product-card:focus-visible,
+.category-card:focus-visible,
+.related-card:focus-visible {
+  box-shadow: 0 0 0 3px rgba(245, 168, 23, .24), var(--shadow);
+}
+
+/* Cleaner one-line hero headline animation */
+.hero h1 {
+  max-width: none;
+  white-space: nowrap;
+  letter-spacing: -.035em;
+}
+
+.hero h1 span {
+  display: inline;
+  margin-left: .12em;
+}
+
+.hero::after {
+  inset: 0;
+  background: linear-gradient(105deg, transparent 0 43%, rgba(245, 168, 23, .08) 46%, rgba(255, 193, 77, .7) 48%, rgba(245, 168, 23, .1) 50%, transparent 54% 100%);
+  transform: translate3d(-70%, 0, 0) skewX(-10deg);
+  animation: heroRibbonSweep 7.2s cubic-bezier(.6, 0, .24, 1) infinite;
+}
+
+.hero .reveal-up {
+  animation-duration: .78s;
+}
+
+.hero h1.reveal-up {
+  animation-name: heroTitleSlide;
+}
+
+@keyframes heroRibbonSweep {
+  0%,
+  34% {
+    opacity: 0;
+    transform: translate3d(-70%, 0, 0) skewX(-10deg);
+  }
+
+  48% {
+    opacity: .9;
+  }
+
+  74%,
+  100% {
+    opacity: 0;
+    transform: translate3d(70%, 0, 0) skewX(-10deg);
+  }
+}
+
+@keyframes heroTitleSlide {
+  from {
+    opacity: 0;
+    filter: blur(4px);
+    transform: translate3d(-18px, 22px, 0) scale(.98);
+  }
+
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@media (max-width: 767.98px) {
+  .hero h1 {
+    font-size: clamp(2.25rem, 10.4vw, 3.8rem);
+    line-height: .9;
+  }
+}
+
+@media (max-width: 360px) {
+  .hero h1 {
+    font-size: 2.05rem;
   }
 }

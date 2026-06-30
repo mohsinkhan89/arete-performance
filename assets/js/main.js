@@ -179,6 +179,11 @@ document.addEventListener("DOMContentLoaded", () => {
     setPanelState(searchPanel, false);
   }
 
+  function goToPage(url) {
+    if (!url) return;
+    window.location.href = url;
+  }
+
   function openCart() {
     renderCart();
     cartOverlay.classList.add("is-open");
@@ -274,7 +279,10 @@ document.addEventListener("DOMContentLoaded", () => {
     if (event.target === searchPanel) closeSearch();
   });
   searchInput.addEventListener("input", (event) => renderSearchResults(event.target.value));
-  searchForm.addEventListener("submit", (event) => event.preventDefault());
+  searchForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    goToPage("search.html");
+  });
 
   document.querySelector(".cart-btn").addEventListener("click", openCart);
   document.querySelector(".cart-close").addEventListener("click", closeCart);
@@ -362,7 +370,13 @@ document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("click", (event) => {
     const productCard = event.target.closest(".product-card");
     const relatedCard = event.target.closest(".related-card");
+    const categoryCard = event.target.closest(".category-card");
     const addFromSearch = event.target.closest("[data-search-add]");
+    const goTrigger = event.target.closest("[data-go]");
+    const accountButton = event.target.closest(".icon-btn[aria-label='Account']");
+    const clearFilters = event.target.closest(".clear-filters");
+    const clearSearch = event.target.closest("[aria-label='Clear search']");
+    const sortButton = event.target.closest(".shop-toolbar button");
     const productThumb = event.target.closest("[data-product-image]");
     const productAdd = event.target.closest("[data-product-add]");
     const buyNow = event.target.closest("[data-buy-now]");
@@ -383,13 +397,24 @@ document.addEventListener("DOMContentLoaded", () => {
       qtyOutput.textContent = String(Math.max(1, Math.min(99, qty)));
     };
 
+    if (goTrigger) goToPage(goTrigger.dataset.go);
+    if (accountButton) goToPage("my-cart.html");
+    if (clearFilters) goToPage(document.body.classList.contains("search-page") ? "search.html" : "shop.html");
+    if (clearSearch) goToPage("search.html");
+    if (sortButton) goToPage(document.body.classList.contains("search-page") ? "search.html" : "shop.html");
+    if (categoryCard && !event.target.closest("button, a")) goToPage("shop.html");
+
     if (productCard && event.target.closest("button")) {
       const index = [...document.querySelectorAll(".product-card")].indexOf(productCard);
       addToCart(productCard.dataset.productId || products[index]?.id);
+    } else if (productCard && !event.target.closest("a")) {
+      goToPage("product-detail.html");
     }
 
-    if (relatedCard) {
+    if (relatedCard && event.target.closest("button")) {
       addToCart(relatedCard.dataset.productId);
+    } else if (relatedCard) {
+      goToPage("product-detail.html");
     }
 
     if (productThumb) {
@@ -412,7 +437,7 @@ document.addEventListener("DOMContentLoaded", () => {
       window.location.href = "checkout.html";
     }
     if (labReport) showToast("Lab report preview is opening soon.");
-    if (drawerCheckout) window.location.href = "checkout.html";
+    if (drawerCheckout) goToPage("checkout.html");
 
     if (detailTapCard && !event.target.closest("button, a, summary")) {
       detailTapCard.classList.remove("is-tapped");
